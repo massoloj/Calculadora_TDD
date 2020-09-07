@@ -1,10 +1,20 @@
 import unittest
 
+from source.calculator import Calculator
+
 
 class CalculatorTester(unittest.TestCase):
 
+    def setUp(self):
+        self.calculator = Calculator()
+
     def test_add_success(self):
-        pass
+        value1 = 1
+        value2 = 1
+        expected_result = 2
+
+        result = self.calculator.add(value1, value2)
+        assert result == expected_result
 
     def test_add_fails(self):
         pass
