@@ -17,7 +17,12 @@ class CalculatorTester(unittest.TestCase):
         assert result == expected_result
 
     def test_add_fails(self):
-        pass
+        value1 = 1
+        value2 = '1'
+        expected_result = 2
+
+        result = self.calculator.add(value1, value2)
+        assert result == expected_result
 
     def test_substract_success(self):
         pass

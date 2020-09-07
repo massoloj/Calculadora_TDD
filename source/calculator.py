@@ -1,19 +1,28 @@
+from source.exceptions import OperationException
+
 
 class Calculator:
     def __init__(self):
         pass
 
-    def add(self, value1, value2):
+    @classmethod
+    def add(cls, value1, value2):
         try:
             return value1 + value2
-        except Exception as error:
-            raise error('Error in addition')
+        except Exception as e:
+            raise OperationException(
+                message='There was an error in sum operation',
+                errors=e
+            )
 
-    def substract(self, value1, value2):
+    @classmethod
+    def substract(cls, value1, value2):
         pass
 
-    def multiply(self, value1, value2):
+    @classmethod
+    def multiply(cls, value1, value2):
         pass
 
-    def divide(self, value1, value2):
+    @classmethod
+    def divide(cls, value1, value2):
         pass
