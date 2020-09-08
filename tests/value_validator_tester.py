@@ -44,4 +44,3 @@ class ValueValidatorTester(unittest.TestCase):
             self.value_validator.validate_value(test_value)
 
         self.assertTrue(expected_message in str(context.exception))
-
