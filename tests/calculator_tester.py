@@ -103,9 +103,35 @@ class CalculatorTester(unittest.TestCase):
 
         self.assertTrue(expected_message in str(context.exception))
 
-
     def test_divide_success(self):
-        pass
+        test_value1 = 100
+        test_value2 = 100
+        expected_result = 1
+
+        result = self.calculator.divide(test_value1, test_value2)
+        assert result == expected_result
+
+    def test_divide_raises_value_not_integer_exception(self):
+        test_value1 = 100
+        test_value2 = '1'
+        expected_exception = ValueNotIntegerException
+        expected_message = 'Only integer values are allowed'
+
+        with self.assertRaises(expected_exception) as context:
+            self.calculator.divide(test_value1, test_value2)
+
+        self.assertTrue(expected_message in str(context.exception))
+
+    def test_divide_raises_minimum_limit_exception(self):
+        test_value1 = 100
+        test_value2 = 1
+        expected_exception = MinimumLimitException
+        expected_message = 'The minimum allowed value is 10'
+
+        with self.assertRaises(expected_exception) as context:
+            self.calculator.divide(test_value1, test_value2)
+
+        self.assertTrue(expected_message in str(context.exception))
 
 
 if __name__ == '__main__':

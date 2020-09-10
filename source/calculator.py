@@ -40,5 +40,12 @@ class Calculator:
             )
 
     @classmethod
+    @input_validator
     def divide(cls, value1, value2):
-        pass
+        try:
+            return value1 / value2
+        except Exception as e:
+            raise OperationException(
+                message='There was an error in multiply operation',
+                errors=e
+            )
