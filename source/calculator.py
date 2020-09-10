@@ -18,8 +18,15 @@ class Calculator:
             )
 
     @classmethod
+    @input_validator
     def substract(cls, value1, value2):
-        pass
+        try:
+            return value1 - value2
+        except Exception as e:
+            raise OperationException(
+                message='There was an error in substract operation',
+                errors=e
+            )
 
     @classmethod
     def multiply(cls, value1, value2):
