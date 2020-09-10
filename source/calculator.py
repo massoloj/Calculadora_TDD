@@ -1,3 +1,4 @@
+from source.decorators import input_validator
 from source.exceptions import OperationException
 
 
@@ -6,6 +7,7 @@ class Calculator:
         pass
 
     @classmethod
+    @input_validator
     def add(cls, value1, value2):
         try:
             return value1 + value2
